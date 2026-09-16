@@ -221,3 +221,8 @@ modal.addEventListener('click', e => {
     closeModal();
   }
 });
+window.openLogin = openLogin;
+window.openApp = openApp;
+window.closeModal = closeModal;
+window.handleAuth = handleAuth;
+window.signOut = signOut;
