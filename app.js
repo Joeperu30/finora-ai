@@ -514,7 +514,143 @@ function showWorkspace() {
 }
 
   
+function toggleBackOfficeMenu() {
+  let menu = document.getElementById('backOfficeMenu');
 
+  if (menu) {
+    menu.remove();
+    return;
+  }
+
+  menu = document.createElement('div');
+  menu.id = 'backOfficeMenu';
+
+  menu.style.position = 'fixed';
+  menu.style.top = '0';
+  menu.style.right = '0';
+  menu.style.width = '290px';
+  menu.style.height = '100vh';
+  menu.style.zIndex = '9999';
+  menu.style.background = '#080808';
+  menu.style.borderLeft = '1px solid #2a2a2a';
+  menu.style.boxShadow = '-20px 0 60px rgba(0,0,0,.65)';
+  menu.style.padding = '28px 20px';
+  menu.style.overflowY = 'auto';
+
+  menu.innerHTML = `
+    <div style="
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    ">
+      <div class="brand">
+        <span class="mark">Z</span>
+        <span>FINORA AI</span>
+      </div>
+
+      <button
+        onclick="toggleBackOfficeMenu()"
+        style="
+          width:42px;
+          height:42px;
+          border:1px solid #f5c400;
+          border-radius:12px;
+          background:#090909;
+          color:#f5c400;
+          font-size:24px;
+          cursor:pointer;
+        "
+      >×</button>
+    </div>
+
+    <div
+      class="bo-menu-item"
+      onclick="toggleBackOfficeMenu()"
+    >
+      <strong>Dashboard</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Overview of your account
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Wallets</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Balances and transactions
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>My Network</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Left and right teams
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Commissions</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Direct and binary earnings
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Referral Center</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Referral link and partners
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Investment Portfolio</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Capital and portfolio
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Earnings History</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Complete earnings history
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Profile</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Account information
+      </small>
+    </div>
+
+    <div class="bo-menu-item">
+      <strong>Settings</strong>
+      <small style="display:block;color:#777;margin-top:4px;">
+        Security and preferences
+      </small>
+    </div>
+
+    <button
+      onclick="signOut()"
+      style="
+        width:100%;
+        margin-top:28px;
+        padding:15px;
+        border:0;
+        border-radius:12px;
+        background:#f5c400;
+        color:#000;
+        font-size:16px;
+        font-weight:700;
+        cursor:pointer;
+      "
+    >
+      Sign out
+    </button>
+  `;
+
+  document.body.appendChild(menu);
+}
 
 async function signOut() {
   const supabase = await getSupabase();
