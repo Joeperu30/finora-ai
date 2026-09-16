@@ -300,6 +300,12 @@ footer{
   align-items:center;
   justify-content:center;
 }
+ 
+
+
+.modal.show{
+  display:flex;
+}
 
 .modal-box{
   width:min(620px,100%);
