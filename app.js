@@ -174,35 +174,347 @@ async function handleAuth(event, mode) {
 function showWorkspace() {
   const box = document.querySelector('.modal-box');
 
+  const userEmail =
+    supabaseClient?.auth?.getUser
+      ? 'FINORA User'
+      : 'FINORA User';
+
   box.innerHTML = `
     <button class="close" onclick="closeModal()">×</button>
 
-    <div class="brand">
-      <span class="mark">Z</span>
-      <span>FINORA AI</span>
+    <div style="
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+    ">
+      <div class="brand">
+        <span class="mark">Z</span>
+        <span>FINORA AI</span>
+      </div>
+
+      <button
+        onclick="toggleBackOfficeMenu()"
+        style="
+          width:48px;
+          height:48px;
+          border:1px solid #f5c400;
+          border-radius:14px;
+          background:#090909;
+          color:#f5c400;
+          font-size:24px;
+          cursor:pointer;
+        "
+      >☰</button>
     </div>
 
-    <h2>Workspace ready.</h2>
+    <div id="backOfficeMenu" style="
+      display:none;
+      margin-bottom:24px;
+      border:1px solid #292929;
+      border-radius:18px;
+      overflow:hidden;
+      background:#080808;
+    ">
 
-    <p>
-      You are successfully signed in to FINORA AI.
-    </p>
+      <div class="bo-menu-item">Dashboard</div>
+      <div class="bo-menu-item">Wallets</div>
+      <div class="bo-menu-item">My Network</div>
+      <div class="bo-menu-item">Left Team</div>
+      <div class="bo-menu-item">Right Team</div>
+      <div class="bo-menu-item">Investments</div>
+      <div class="bo-menu-item">Direct Commissions</div>
+      <div class="bo-menu-item">Binary Earnings</div>
+      <div class="bo-menu-item">Earnings History</div>
+      <div class="bo-menu-item">Referral Center</div>
+      <div class="bo-menu-item">Transactions</div>
+      <div class="bo-menu-item">Profile</div>
+      <div class="bo-menu-item">Security</div>
+      <div class="bo-menu-item">Support</div>
 
-    <div style="border:1px solid #1d2820;border-radius:10px;padding:16px;color:#8c988f;font-size:13px;line-height:1.7">
-      ✓ Account authenticated<br>
-      ✓ Secure session active<br>
-      → FINORA intelligence workspace
+    </div>
+
+    <div style="margin-bottom:28px;">
+      <div style="
+        color:#999;
+        font-size:14px;
+        margin-bottom:6px;
+      ">
+        Welcome back,
+      </div>
+
+      <h2 style="
+        margin:0;
+        font-size:32px;
+        color:#fff;
+      ">
+        FINORA User 👋
+      </h2>
+
+      <p style="
+        color:#888;
+        margin-top:8px;
+      ">
+        Manage your capital, network and earnings.
+      </p>
+    </div>
+
+    <div class="bo-grid">
+
+      <div class="bo-card">
+        <span>Total Balance</span>
+        <strong>$0.00</strong>
+        <small>USDT</small>
+      </div>
+
+      <div class="bo-card">
+        <span>Invested Capital</span>
+        <strong>$0.00</strong>
+        <small>USDT</small>
+      </div>
+
+      <div class="bo-card">
+        <span>Total Earnings</span>
+        <strong>$0.00</strong>
+        <small>All time</small>
+      </div>
+
+      <div class="bo-card">
+        <span>Available Balance</span>
+        <strong>$0.00</strong>
+        <small>Available</small>
+      </div>
+
+    </div>
+
+    <h3 class="bo-title">Wallets</h3>
+
+    <div class="bo-wallets">
+
+      <div class="bo-wallet">
+        <div>
+          <b>USDT</b>
+          <span>Stablecoin Wallet</span>
+        </div>
+        <strong>$0.00</strong>
+      </div>
+
+      <div class="bo-wallet">
+        <div>
+          <b>BTC</b>
+          <span>Bitcoin Wallet</span>
+        </div>
+        <strong>0.000000</strong>
+      </div>
+
+      <div class="bo-wallet">
+        <div>
+          <b>ETH</b>
+          <span>Ethereum Wallet</span>
+        </div>
+        <strong>0.000000</strong>
+      </div>
+
+    </div>
+
+    <div class="bo-actions">
+
+      <button>Deposit</button>
+      <button>Withdraw</button>
+      <button>Transfer</button>
+      <button>History</button>
+
+    </div>
+
+    <h3 class="bo-title">My Network</h3>
+
+    <div class="bo-network">
+
+      <div class="team-box">
+        <span>LEFT TEAM</span>
+        <strong>$0.00</strong>
+        <small>Volume</small>
+        <em>0 users</em>
+      </div>
+
+      <div class="team-center">
+        <div class="network-circle">YOU</div>
+        <span>Binary Network</span>
+      </div>
+
+      <div class="team-box">
+        <span>RIGHT TEAM</span>
+        <strong>$0.00</strong>
+        <small>Volume</small>
+        <em>0 users</em>
+      </div>
+
+    </div>
+
+    <div class="bo-stat-row">
+
+      <div class="bo-stat">
+        <span>Total Users</span>
+        <strong>0</strong>
+      </div>
+
+      <div class="bo-stat">
+        <span>Left Users</span>
+        <strong>0</strong>
+      </div>
+
+      <div class="bo-stat">
+        <span>Right Users</span>
+        <strong>0</strong>
+      </div>
+
+    </div>
+
+    <h3 class="bo-title">Commissions</h3>
+
+    <div class="commission-card">
+
+      <div>
+        <span>Direct Commission</span>
+        <small>10% from direct partner investments</small>
+      </div>
+
+      <strong>$0.00</strong>
+
+    </div>
+
+    <div class="commission-card">
+
+      <div>
+        <span>Binary Commission</span>
+        <small>10% of the lower weekly team volume</small>
+      </div>
+
+      <strong>$0.00</strong>
+
+    </div>
+
+    <div class="binary-detail">
+
+      <div>
+        <span>Left Volume</span>
+        <b>$0.00</b>
+      </div>
+
+      <div>
+        <span>Right Volume</span>
+        <b>$0.00</b>
+      </div>
+
+      <div>
+        <span>Matched Volume</span>
+        <b>$0.00</b>
+      </div>
+
+      <div>
+        <span>Rate</span>
+        <b>10%</b>
+      </div>
+
+    </div>
+
+    <h3 class="bo-title">Referral Center</h3>
+
+    <div class="referral-card">
+
+      <span>Your Referral Link</span>
+
+      <div class="referral-link">
+        finora.ai/?ref=FINORA-USER
+        <button>Copy</button>
+      </div>
+
+      <div class="referral-stats">
+
+        <div>
+          <small>Total Referrals</small>
+          <strong>0</strong>
+        </div>
+
+        <div>
+          <small>Direct Earnings</small>
+          <strong>$0.00</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <h3 class="bo-title">Investment Portfolio</h3>
+
+    <div class="portfolio-card">
+
+      <div class="portfolio-top">
+        <div>
+          <span>Invested Capital</span>
+          <strong>$0.00 USDT</strong>
+        </div>
+
+        <div class="status">
+          ● ACTIVE
+        </div>
+      </div>
+
+      <div class="portfolio-chart">
+        <div class="chart-line"></div>
+      </div>
+
+      <div class="portfolio-info">
+
+        <div>
+          <small>Portfolio Performance</small>
+          <b>--</b>
+        </div>
+
+        <div>
+          <small>Current Value</small>
+          <b>$0.00</b>
+        </div>
+
+      </div>
+
+      <p class="portfolio-note">
+        FINORA AI Engine will display verified portfolio performance
+        once real market execution is connected.
+      </p>
+
+    </div>
+
+    <h3 class="bo-title">Earnings History</h3>
+
+    <div class="empty-history">
+
+      <span>◷</span>
+
+      <strong>No earnings yet</strong>
+
+      <small>
+        Your direct and binary earnings will appear here.
+      </small>
+
     </div>
 
     <button
       class="primary full"
       onclick="signOut()"
-      style="margin-top:16px"
+      style="margin-top:28px;"
     >
       Sign out
     </button>
   `;
+
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
 }
+
+  
+
 
 async function signOut() {
   const supabase = await getSupabase();
