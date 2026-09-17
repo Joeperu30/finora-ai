@@ -753,134 +753,491 @@ function openWallets() {
   if (session) {
     showWorkspace();
   }
-})();
-function openMyNetwork() {
-    const existingMenu = document.getElementById('backOfficeMenu');
-  if (existingMenu) existingMenu.remove();
-  const box = document.querySelector('.modal-box');
+})();function openMyNetwork() {
+  const oldMenu = document.getElementById('my-network-fullscreen');
+  if (oldMenu) oldMenu.remove();
 
-  box.innerHTML = `
-<button class="close" onclick="toggleBackOfficeMenu()">
+  const modal = document.createElement('div');
+  modal.id = 'my-network-fullscreen';
 
-    <div class="brand" style="margin-bottom:30px;">
-      <span class="mark">Z</span>
-      <span>FINORA AI</span>
-    </div>
+  modal.innerHTML = `
+    <div class="mn-overlay">
 
-    <h2>My Network</h2>
-    <p style="color:#888;margin-bottom:30px;">
-      Your binary network structure
-    </p>
-
-    <div style="display:grid;grid-template-columns:1fr;gap:14px;width:100%;">
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
-        <small style="color:#777;">Total Partners</small>
-        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
-      </div>
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
-        <small style="color:#777;">Left Team</small>
-        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
-      </div>
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
-        <small style="color:#777;">Right Team</small>
-        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
-      </div>
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
-        <small style="color:#777;">Active Partners</small>
-        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
-      </div>
-
-    </div>
-
-    <div style="padding:28px 12px;border:1px solid #292929;border-radius:20px;background:#080808;text-align:center;overflow-x:auto;">
-
-      <div style="display:inline-block;min-width:500px;">
-
-        <div style="display:flex;justify-content:center;">
-          <div style="padding:16px 28px;border:2px solid #f5c400;border-radius:14px;background:#101010;">
-            <div style="font-size:12px;color:#777;">YOUR POSITION</div>
-            <strong style="display:block;font-size:20px;margin-top:5px;">YOU</strong>
+      <div class="mn-header">
+        <div class="mn-brand">
+          <div class="mn-logo">Z</div>
+          <div>
+            <strong>FINORA AI</strong>
+            <span>MY NETWORK</span>
           </div>
         </div>
 
-        <div style="height:35px;width:2px;background:#f5c400;margin:auto;"></div>
+        <button class="mn-close" onclick="document.getElementById('my-network-fullscreen').remove()">
+          ×
+        </button>
+      </div>
 
-        <div style="display:flex;justify-content:center;gap:100px;position:relative;">
+      <div class="mn-content">
 
-          <div style="position:absolute;top:0;left:25%;right:25%;height:2px;background:#f5c400;"></div>
+        <div class="mn-title">
+          <span>NETWORK</span>
+          <h1>My Network</h1>
+          <p>Your binary network structure</p>
+        </div>
 
-          <div style="padding:16px 28px;border:1px solid #f5c400;border-radius:14px;background:#101010;margin-top:2px;">
-            <div style="color:#f5c400;font-size:12px;">LEFT TEAM</div>
-            <strong style="display:block;font-size:18px;margin-top:5px;">0 Partners</strong>
-            <small style="color:#777;">Volume: $0.00</small>
+        <div class="mn-stats">
+
+          <div class="mn-stat">
+            <span>Total Partners</span>
+            <strong>0</strong>
+            <small>Network members</small>
           </div>
 
-          <div style="padding:16px 28px;border:1px solid #f5c400;border-radius:14px;background:#101010;margin-top:2px;">
-            <div style="color:#f5c400;font-size:12px;">RIGHT TEAM</div>
-            <strong style="display:block;font-size:18px;margin-top:5px;">0 Partners</strong>
-            <small style="color:#777;">Volume: $0.00</small>
+          <div class="mn-stat">
+            <span>Left Team</span>
+            <strong>0</strong>
+            <small>Partners</small>
+          </div>
+
+          <div class="mn-stat">
+            <span>Right Team</span>
+            <strong>0</strong>
+            <small>Partners</small>
+          </div>
+
+          <div class="mn-stat">
+            <span>Active Partners</span>
+            <strong>0</strong>
+            <small>Currently active</small>
           </div>
 
         </div>
 
-        <div style="display:flex;justify-content:center;gap:70px;margin-top:30px;">
+        <div class="mn-binary">
 
-          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
-            <div style="color:#777;font-size:11px;">LEFT</div>
-            <strong>L1</strong>
-            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          <div class="mn-side">
+            <div class="mn-side-title">
+              <span>LEFT TEAM</span>
+              <strong>$0.00</strong>
+              <small>Volume</small>
+            </div>
+
+            <div class="mn-levels">
+              <div class="mn-node">
+                <span>L1</span>
+                <strong>0</strong>
+                <small>Partners</small>
+              </div>
+
+              <div class="mn-node">
+                <span>L2</span>
+                <strong>0</strong>
+                <small>Partners</small>
+              </div>
+            </div>
           </div>
 
-          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
-            <div style="color:#777;font-size:11px;">LEFT</div>
-            <strong>L2</strong>
-            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          <div class="mn-center">
+            <div class="mn-you">YOU</div>
+            <strong>Binary Network</strong>
+            <span>Your position</span>
           </div>
 
-          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
-            <div style="color:#777;font-size:11px;">RIGHT</div>
-            <strong>R1</strong>
-            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          <div class="mn-side">
+            <div class="mn-side-title">
+              <span>RIGHT TEAM</span>
+              <strong>$0.00</strong>
+              <small>Volume</small>
+            </div>
+
+            <div class="mn-levels">
+              <div class="mn-node">
+                <span>R1</span>
+                <strong>0</strong>
+                <small>Partners</small>
+              </div>
+
+              <div class="mn-node">
+                <span>R2</span>
+                <strong>0</strong>
+                <small>Partners</small>
+              </div>
+            </div>
           </div>
 
-          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
-            <div style="color:#777;font-size:11px;">RIGHT</div>
-            <strong>R2</strong>
-            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+        </div>
+
+        <div class="mn-bottom">
+
+          <div class="mn-info">
+            <span>LEFT VOLUME</span>
+            <strong>$0.00 USDT</strong>
+          </div>
+
+          <div class="mn-info">
+            <span>RIGHT VOLUME</span>
+            <strong>$0.00 USDT</strong>
+          </div>
+
+          <div class="mn-info">
+            <span>NETWORK EARNINGS</span>
+            <strong>$0.00 USDT</strong>
           </div>
 
         </div>
 
       </div>
-
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;">
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;">
-        <small style="color:#777;">Left Volume</small>
-        <strong style="display:block;font-size:20px;margin-top:6px;">$0.00</strong>
-      </div>
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;">
-        <small style="color:#777;">Right Volume</small>
-        <strong style="display:block;font-size:20px;margin-top:6px;">$0.00</strong>
-      </div>
-
-      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;">
-        <small style="color:#777;">Network Earnings</small>
-        <strong style="display:block;font-size:20px;margin-top:6px;">$0.00</strong>
-      </div>
-
     </div>
   `;
 
-  modal.classList.add('show');
-  modal.setAttribute('aria-hidden', 'false');
+  document.body.appendChild(modal);
+
+  const style = document.createElement('style');
+  style.id = 'my-network-professional-style';
+
+  style.textContent = `
+    #my-network-fullscreen {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+    }
+
+    #my-network-fullscreen * {
+      box-sizing: border-box;
+    }
+
+    .mn-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 80% 5%, rgba(245,196,0,.12), transparent 28%),
+        radial-gradient(circle at 15% 40%, rgba(245,196,0,.06), transparent 25%),
+        #030303;
+      color: #f5f5f5;
+      font-family: Inter, Arial, sans-serif;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mn-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 76px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(3,3,3,.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #222;
+    }
+
+    .mn-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mn-logo {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #f5c400;
+      border-radius: 13px;
+      color: #f5c400;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .mn-brand strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    .mn-brand span {
+      display: block;
+      margin-top: 3px;
+      color: #777;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .mn-close {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #333;
+      border-radius: 12px;
+      background: #0b0b0b;
+      color: #aaa;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .mn-content {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 36px 22px 70px;
+    }
+
+    .mn-title {
+      margin-bottom: 28px;
+    }
+
+    .mn-title span {
+      color: #f5c400;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .mn-title h1 {
+      margin: 7px 0 5px;
+      font-size: clamp(32px, 6vw, 52px);
+      letter-spacing: -1.5px;
+    }
+
+    .mn-title p {
+      margin: 0;
+      color: #777;
+      font-size: 15px;
+    }
+
+    .mn-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .mn-stat,
+    .mn-side,
+    .mn-info {
+      background: linear-gradient(145deg,#101010,#070707);
+      border: 1px solid #252525;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.35);
+    }
+
+    .mn-stat {
+      padding: 20px;
+    }
+
+    .mn-stat span,
+    .mn-info span {
+      display: block;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .mn-stat strong {
+      display: block;
+      margin: 9px 0 3px;
+      color: #f5c400;
+      font-size: 30px;
+    }
+
+    .mn-stat small,
+    .mn-info small {
+      color: #555;
+    }
+
+    .mn-binary {
+      display: grid;
+      grid-template-columns: 1fr 150px 1fr;
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .mn-side {
+      padding: 22px;
+    }
+
+    .mn-side-title {
+      padding-bottom: 18px;
+      border-bottom: 1px solid #222;
+    }
+
+    .mn-side-title span {
+      display: block;
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .mn-side-title strong {
+      display: block;
+      margin-top: 8px;
+      color: #f5c400;
+      font-size: 25px;
+    }
+
+    .mn-side-title small {
+      color: #555;
+    }
+
+    .mn-levels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mn-node {
+      padding: 18px 12px;
+      text-align: center;
+      border: 1px solid #242424;
+      border-radius: 14px;
+      background: #080808;
+    }
+
+    .mn-node span {
+      color: #777;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .mn-node strong {
+      display: block;
+      margin: 6px 0;
+      font-size: 25px;
+    }
+
+    .mn-node small {
+      color: #555;
+      font-size: 10px;
+    }
+
+    .mn-center {
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .mn-you {
+      width: 82px;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      border: 2px solid #f5c400;
+      border-radius: 50%;
+      color: #f5c400;
+      font-size: 18px;
+      font-weight: 800;
+      background: radial-gradient(circle,#211b00,#080808);
+      box-shadow: 0 0 35px rgba(245,196,0,.15);
+    }
+
+    .mn-center strong {
+      font-size: 13px;
+    }
+
+    .mn-center span {
+      margin-top: 5px;
+      color: #666;
+      font-size: 10px;
+    }
+
+    .mn-bottom {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .mn-info {
+      padding: 20px;
+    }
+
+    .mn-info strong {
+      display: block;
+      margin-top: 8px;
+      color: #f5c400;
+      font-size: 21px;
+    }
+
+    @media (max-width: 760px) {
+      .mn-content {
+        padding: 26px 15px 55px;
+      }
+
+      .mn-header {
+        padding: 13px 15px;
+      }
+
+      .mn-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mn-binary {
+        grid-template-columns: 1fr;
+      }
+
+      .mn-center {
+        order: -1;
+        min-height: 150px;
+      }
+
+      .mn-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .mn-side {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .mn-stats {
+        gap: 9px;
+      }
+
+      .mn-stat {
+        padding: 15px;
+      }
+
+      .mn-stat strong {
+        font-size: 25px;
+      }
+
+      .mn-levels {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mn-title h1 {
+        font-size: 34px;
+      }
+    }
+  `;
+
+  const oldStyle = document.getElementById('my-network-professional-style');
+  if (oldStyle) oldStyle.remove();
+
+  document.head.appendChild(style);
+
+  document.body.style.overflow = 'hidden';
+
+  modal.querySelector('.mn-overlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      modal.remove();
+      document.body.style.overflow = '';
+    }
+  });
 }
 
 window.openMyNetwork = openMyNetwork;
