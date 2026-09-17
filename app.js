@@ -772,7 +772,7 @@ function openMyNetwork() {
       Your binary network structure
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:14px;width:100%;">
 
       <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
         <small style="color:#777;">Total Partners</small>
