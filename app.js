@@ -674,3 +674,12 @@ window.openApp = openApp;
 window.closeModal = closeModal;
 window.handleAuth = handleAuth;
 window.signOut = signOut;
+(async function restoreSession() {
+  const supabase = await getSupabase();
+
+  const { data: { session } } = await supabase.auth.getSession();
+
+  if (session) {
+    showWorkspace();
+  }
+})();
