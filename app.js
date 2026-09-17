@@ -561,7 +561,7 @@ function toggleBackOfficeMenu() {
           font-size:24px;
           cursor:pointer;
         "
-      >×</button>
+     >☰</button>
     </div>
 
     <div
