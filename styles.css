@@ -1331,3 +1331,228 @@ input:focus{
         padding:17px;
     }
 }
+/* ===== FINORA AI — PREMIUM BINARY TREE ===== */
+
+.mn-binary{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 150px 1fr;
+    align-items:center;
+    gap:24px;
+    margin-top:30px;
+    padding:30px 0;
+}
+
+.mn-side{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(245,196,0,.18);
+    background:
+        radial-gradient(circle at 50% 0%,rgba(245,196,0,.07),transparent 55%),
+        linear-gradient(145deg,#121212,#070707);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.03);
+    transition:transform .25s ease,border-color .25s ease;
+}
+
+.mn-side:hover{
+    transform:translateY(-4px);
+    border-color:rgba(245,196,0,.45);
+}
+
+.mn-side-title{
+    position:relative;
+    padding-bottom:18px;
+    border-bottom:1px solid #222;
+}
+
+.mn-side-title span{
+    color:#777;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.mn-side-title strong{
+    font-size:25px;
+    color:#f5c400;
+}
+
+.mn-levels{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.mn-node{
+    position:relative;
+    min-height:86px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border:1px solid #242424;
+    background:linear-gradient(145deg,#111,#090909);
+    transition:.25s ease;
+}
+
+.mn-node:hover{
+    transform:translateY(-3px);
+    border-color:#f5c400;
+    box-shadow:0 10px 30px rgba(245,196,0,.08);
+}
+
+.mn-node strong{
+    color:#f5c400;
+}
+
+.mn-center{
+    position:relative;
+    z-index:5;
+}
+
+.mn-you{
+    position:relative;
+    width:92px;
+    height:92px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 14px;
+    border:2px solid #f5c400;
+    border-radius:50%;
+    background:
+        radial-gradient(circle,#181400 0%,#090909 70%);
+    color:#f5c400;
+    font-size:20px;
+    font-weight:900;
+    box-shadow:
+        0 0 0 8px rgba(245,196,0,.035),
+        0 0 45px rgba(245,196,0,.18);
+}
+
+.mn-you::before{
+    content:"";
+    position:absolute;
+    inset:-7px;
+    border:1px solid rgba(245,196,0,.18);
+    border-radius:50%;
+    animation:finoraPulse 2.5s infinite;
+}
+
+.mn-center strong{
+    color:#f5f5f5;
+    font-size:14px;
+    letter-spacing:.5px;
+}
+
+.mn-center span{
+    color:#666;
+}
+
+@keyframes finoraPulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:.7;
+    }
+    50%{
+        transform:scale(1.08);
+        opacity:.15;
+    }
+}
+
+/* Líneas visuales del árbol */
+
+.mn-binary::before,
+.mn-binary::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:calc(50% - 105px);
+    height:1px;
+    background:linear-gradient(90deg,transparent,#f5c400,transparent);
+    opacity:.35;
+    pointer-events:none;
+}
+
+.mn-binary::before{
+    left:0;
+}
+
+.mn-binary::after{
+    right:0;
+}
+
+/* Resumen */
+
+.mn-bottom{
+    margin-top:24px;
+}
+
+.mn-info{
+    background:
+        radial-gradient(circle at 100% 0%,rgba(245,196,0,.05),transparent 55%),
+        #0b0b0b;
+    border-color:#242424;
+    transition:.25s ease;
+}
+
+.mn-info:hover{
+    border-color:rgba(245,196,0,.3);
+}
+
+.mn-info strong{
+    color:#f5c400;
+}
+
+/* MÓVIL */
+
+@media(max-width:768px){
+
+    .mn-binary{
+        grid-template-columns:1fr;
+        gap:16px;
+        padding:15px 0;
+    }
+
+    .mn-center{
+        order:-1;
+    }
+
+    .mn-you{
+        width:82px;
+        height:82px;
+        font-size:18px;
+    }
+
+    .mn-binary::before,
+    .mn-binary::after{
+        display:none;
+    }
+
+    .mn-side{
+        width:100%;
+    }
+}
+
+@media(max-width:480px){
+
+    .mn-levels{
+        gap:8px;
+    }
+
+    .mn-node{
+        min-height:78px;
+        padding:12px;
+    }
+
+    .mn-node strong{
+        font-size:19px;
+    }
+
+    .mn-side-title strong{
+        font-size:22px;
+    }
+}
