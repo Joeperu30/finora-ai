@@ -581,7 +581,7 @@ function toggleBackOfficeMenu() {
       </small>
     </div>
 
-    <div class="bo-menu-item">
+   <div class="bo-menu-item" onclick="openMyNetwork()">
       <strong>My Network</strong>
       <small style="display:block;color:#777;margin-top:4px;">
         Left and right teams
@@ -754,3 +754,131 @@ function openWallets() {
     showWorkspace();
   }
 })();
+function openMyNetwork() {
+  const box = document.querySelector('.modal-box');
+
+  box.innerHTML = `
+    <button class="close" onclick="closeModal()">×</button>
+
+    <div class="brand" style="margin-bottom:30px;">
+      <span class="mark">Z</span>
+      <span>FINORA AI</span>
+    </div>
+
+    <h2>My Network</h2>
+    <p style="color:#888;margin-bottom:30px;">
+      Your binary network structure
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px;">
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
+        <small style="color:#777;">Total Partners</small>
+        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
+      </div>
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
+        <small style="color:#777;">Left Team</small>
+        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
+      </div>
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
+        <small style="color:#777;">Right Team</small>
+        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
+      </div>
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;text-align:center;">
+        <small style="color:#777;">Active Partners</small>
+        <div style="font-size:26px;font-weight:700;margin-top:8px;">0</div>
+      </div>
+
+    </div>
+
+    <div style="padding:28px 12px;border:1px solid #292929;border-radius:20px;background:#080808;text-align:center;overflow-x:auto;">
+
+      <div style="display:inline-block;min-width:500px;">
+
+        <div style="display:flex;justify-content:center;">
+          <div style="padding:16px 28px;border:2px solid #f5c400;border-radius:14px;background:#101010;">
+            <div style="font-size:12px;color:#777;">YOUR POSITION</div>
+            <strong style="display:block;font-size:20px;margin-top:5px;">YOU</strong>
+          </div>
+        </div>
+
+        <div style="height:35px;width:2px;background:#f5c400;margin:auto;"></div>
+
+        <div style="display:flex;justify-content:center;gap:100px;position:relative;">
+
+          <div style="position:absolute;top:0;left:25%;right:25%;height:2px;background:#f5c400;"></div>
+
+          <div style="padding:16px 28px;border:1px solid #f5c400;border-radius:14px;background:#101010;margin-top:2px;">
+            <div style="color:#f5c400;font-size:12px;">LEFT TEAM</div>
+            <strong style="display:block;font-size:18px;margin-top:5px;">0 Partners</strong>
+            <small style="color:#777;">Volume: $0.00</small>
+          </div>
+
+          <div style="padding:16px 28px;border:1px solid #f5c400;border-radius:14px;background:#101010;margin-top:2px;">
+            <div style="color:#f5c400;font-size:12px;">RIGHT TEAM</div>
+            <strong style="display:block;font-size:18px;margin-top:5px;">0 Partners</strong>
+            <small style="color:#777;">Volume: $0.00</small>
+          </div>
+
+        </div>
+
+        <div style="display:flex;justify-content:center;gap:70px;margin-top:30px;">
+
+          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
+            <div style="color:#777;font-size:11px;">LEFT</div>
+            <strong>L1</strong>
+            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          </div>
+
+          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
+            <div style="color:#777;font-size:11px;">LEFT</div>
+            <strong>L2</strong>
+            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          </div>
+
+          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
+            <div style="color:#777;font-size:11px;">RIGHT</div>
+            <strong>R1</strong>
+            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          </div>
+
+          <div style="padding:14px 22px;border:1px solid #292929;border-radius:12px;background:#0c0c0c;">
+            <div style="color:#777;font-size:11px;">RIGHT</div>
+            <strong>R2</strong>
+            <div style="color:#555;font-size:11px;margin-top:4px;">Empty position</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;">
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;">
+        <small style="color:#777;">Left Volume</small>
+        <strong style="display:block;font-size:20px;margin-top:6px;">$0.00</strong>
+      </div>
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;">
+        <small style="color:#777;">Right Volume</small>
+        <strong style="display:block;font-size:20px;margin-top:6px;">$0.00</strong>
+      </div>
+
+      <div style="padding:18px;border:1px solid #292929;border-radius:16px;background:#080808;">
+        <small style="color:#777;">Network Earnings</small>
+        <strong style="display:block;font-size:20px;margin-top:6px;">$0.00</strong>
+      </div>
+
+    </div>
+  `;
+
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+window.openMyNetwork = openMyNetwork;
