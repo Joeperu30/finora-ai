@@ -758,7 +758,7 @@ function openMyNetwork() {
   const box = document.querySelector('.modal-box');
 
   box.innerHTML = `
-    <button class="close" onclick="closeModal()">×</button>
+<button class="close" onclick="toggleBackOfficeMenu()">
 
     <div class="brand" style="margin-bottom:30px;">
       <span class="mark">Z</span>
