@@ -1602,13 +1602,13 @@ function showPremiumWorkspace() {
     <div class="fp-market">
       <div class="fp-coin">
         <small>BTC</small>
-        <strong>—</strong>
+        <strong id="fp-btc-price">Loading...</strong>
         <div class="fp-change">Live</div>
       </div>
 
       <div class="fp-coin">
         <small>ETH</small>
-        <strong>—</strong>
+        <strong id="fp-eth-price">Loading...</strong>
         <div class="fp-change">Live</div>
       </div>
 
@@ -1627,4 +1627,52 @@ function showPremiumWorkspace() {
 
   box.innerHTML = '';
   box.appendChild(premium);
+  async function updateMarketPrices() {
+  try {
+    const response = await fetch(
+      'https://api.binance.com/api/v3/ticker/24hr?symbols=%5B%22BTCUSDT%22,%22ETHUSDT%22%5D'
+    );
+
+    const data = await response.json();
+
+    const btc = data.find(x => x.symbol === 'BTCUSDT');
+    const eth = data.find(x => x.symbol === 'ETHUSDT');
+
+    if (btc) {
+      const btcPrice = document.getElementById('fp-btc-price');
+
+      if (btcPrice) {
+        btcPrice.textContent =
+          '$' + Number(btc.lastPrice).toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+      }
+    }
+
+    if (eth) {
+      const ethPrice = document.getElementById('fp-eth-price');
+
+      if (ethPrice) {
+        ethPrice.textContent =
+          '$' + Number(eth.lastPrice).toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+      }
+    }
+
+  } catch (error) {
+    console.error('Market price error:', error);
+
+    const btcPrice = document.getElementById('fp-btc-price');
+    const ethPrice = document.getElementById('fp-eth-price');
+
+    if (btcPrice) btcPrice.textContent = '—';
+    if (ethPrice) ethPrice.textContent = '—';
+  }
+}
+
+updateMarketPrices();
+setInterval(updateMarketPrices, 30000);
 }
