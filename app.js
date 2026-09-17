@@ -674,6 +674,77 @@ window.openApp = openApp;
 window.closeModal = closeModal;
 window.handleAuth = handleAuth;
 window.signOut = signOut;
+window.openWallets = openWallets;
+function openWallets() {
+  const box = document.querySelector('.modal-box');
+
+  box.innerHTML = `
+    <button class="close" onclick="closeModal()">×</button>
+
+    <div class="brand" style="margin-bottom:30px;">
+      <span class="mark">Z</span>
+      <span>FINORA AI</span>
+    </div>
+
+    <h2>Wallets</h2>
+    <p style="color:#888;margin-bottom:30px;">
+      Manage your balances, earnings and capital.
+    </p>
+
+    <div style="display:grid;gap:16px;">
+
+      <div style="padding:24px;border:1px solid #292929;border-radius:18px;background:#080808;">
+        <small style="color:#777;">Network Earnings</small>
+        <div style="font-size:32px;font-weight:700;margin-top:8px;">$0.00</div>
+        <div style="color:#f5c400;margin-top:4px;">USDT</div>
+      </div>
+
+      <div style="padding:24px;border:1px solid #292929;border-radius:18px;background:#080808;">
+        <small style="color:#777;">Profit Earnings</small>
+        <div style="font-size:32px;font-weight:700;margin-top:8px;">$0.00</div>
+        <div style="color:#f5c400;margin-top:4px;">USDT</div>
+      </div>
+
+      <div style="padding:24px;border:1px solid #292929;border-radius:18px;background:#080808;">
+        <small style="color:#777;">Total Earnings</small>
+        <div style="font-size:32px;font-weight:700;margin-top:8px;">$0.00</div>
+        <div style="color:#f5c400;margin-top:4px;">USDT</div>
+      </div>
+
+      <div style="padding:24px;border:1px solid #292929;border-radius:18px;background:#080808;">
+        <small style="color:#777;">Invested Capital</small>
+        <div style="font-size:32px;font-weight:700;margin-top:8px;">$0.00</div>
+        <div style="color:#f5c400;margin-top:4px;">USDT</div>
+      </div>
+
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;">
+
+      <button onclick="alert('Withdrawals will be available soon.')" style="padding:14px;border:1px solid #f5c400;border-radius:12px;background:#f5c400;color:#000;font-weight:700;">
+        Withdraw
+      </button>
+
+      <button onclick="alert('Transfers will be available soon.')" style="padding:14px;border:1px solid #f5c400;border-radius:12px;background:#090909;color:#f5c400;font-weight:700;">
+        Transfer
+      </button>
+
+      <button onclick="alert('Transaction history will be available soon.')" style="padding:14px;border:1px solid #f5c400;border-radius:12px;background:#090909;color:#f5c400;font-weight:700;">
+        History
+      </button>
+
+    </div>
+
+    <h3 style="margin-top:36px;">Withdrawal History</h3>
+
+    <div style="padding:24px;border:1px solid #292929;border-radius:18px;background:#080808;color:#777;text-align:center;">
+      No withdrawals yet.
+    </div>
+  `;
+
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
+}
 (async function restoreSession() {
   const supabase = await getSupabase();
 
