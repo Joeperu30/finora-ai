@@ -755,6 +755,8 @@ function openWallets() {
   }
 })();
 function openMyNetwork() {
+    const existingMenu = document.getElementById('backOfficeMenu');
+  if (existingMenu) existingMenu.remove();
   const box = document.querySelector('.modal-box');
 
   box.innerHTML = `
