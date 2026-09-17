@@ -1030,3 +1030,304 @@ input:focus{
     box-sizing:border-box;
   }
 }
+/* ================================
+   FINORA AI — NETWORK PRO UI
+   ================================ */
+
+.mn-content{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:10px 0 40px;
+}
+
+.mn-title{
+    margin-bottom:30px;
+}
+
+.mn-title span{
+    display:inline-block;
+    color:#f5c400;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.mn-title h1{
+    margin:0;
+    font-size:clamp(28px,5vw,42px);
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.mn-title p{
+    margin:8px 0 0;
+    color:#777;
+    font-size:15px;
+}
+
+/* ESTADÍSTICAS */
+
+.mn-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:24px;
+}
+
+.mn-stat{
+    padding:20px;
+    border:1px solid #252525;
+    border-radius:18px;
+    background:linear-gradient(145deg,#111,#080808);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.25s ease;
+}
+
+.mn-stat:hover{
+    transform:translateY(-3px);
+    border-color:#f5c400;
+}
+
+.mn-stat span{
+    display:block;
+    color:#777;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.mn-stat strong{
+    display:block;
+    margin:8px 0 3px;
+    color:#f5c400;
+    font-size:30px;
+    font-weight:800;
+}
+
+.mn-stat small{
+    color:#555;
+    font-size:12px;
+}
+
+/* ÁRBOL BINARIO */
+
+.mn-binary{
+    display:grid;
+    grid-template-columns:1fr 160px 1fr;
+    gap:18px;
+    align-items:center;
+    margin-top:25px;
+}
+
+.mn-side{
+    min-width:0;
+    padding:22px;
+    border:1px solid #292929;
+    border-radius:20px;
+    background:linear-gradient(145deg,#111,#080808);
+    box-shadow:0 15px 40px rgba(0,0,0,.28);
+}
+
+.mn-side-title{
+    margin-bottom:20px;
+}
+
+.mn-side-title span{
+    display:block;
+    color:#777;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.mn-side-title strong{
+    display:block;
+    margin-top:6px;
+    color:#f5c400;
+    font-size:24px;
+}
+
+.mn-side-title small{
+    color:#555;
+}
+
+.mn-center{
+    text-align:center;
+}
+
+.mn-you{
+    width:82px;
+    height:82px;
+    margin:0 auto 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:2px solid #f5c400;
+    border-radius:50%;
+    background:#0b0b0b;
+    color:#f5c400;
+    font-size:18px;
+    font-weight:900;
+    box-shadow:0 0 35px rgba(245,196,0,.18);
+}
+
+.mn-center strong{
+    display:block;
+    font-size:14px;
+}
+
+.mn-center span{
+    display:block;
+    margin-top:4px;
+    color:#666;
+    font-size:11px;
+}
+
+.mn-levels{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.mn-node{
+    padding:16px;
+    border:1px solid #242424;
+    border-radius:14px;
+    background:#0c0c0c;
+    transition:.2s ease;
+}
+
+.mn-node:hover{
+    border-color:#f5c400;
+    background:#111;
+}
+
+.mn-node span{
+    display:block;
+    color:#777;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.mn-node strong{
+    display:block;
+    margin:5px 0;
+    color:#f5c400;
+    font-size:22px;
+}
+
+.mn-node small{
+    color:#555;
+}
+
+/* RESUMEN INFERIOR */
+
+.mn-bottom{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:22px;
+}
+
+.mn-info{
+    padding:20px;
+    border:1px solid #252525;
+    border-radius:16px;
+    background:#0c0c0c;
+}
+
+.mn-info span{
+    display:block;
+    color:#666;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.mn-info strong{
+    display:block;
+    margin-top:7px;
+    color:#f5c400;
+    font-size:22px;
+}
+
+/* MÓVIL */
+
+@media(max-width:768px){
+
+    .mn-content{
+        padding:5px 0 35px;
+    }
+
+    .mn-stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .mn-stat{
+        padding:16px;
+        border-radius:15px;
+    }
+
+    .mn-stat strong{
+        font-size:25px;
+    }
+
+    .mn-binary{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .mn-center{
+        order:-1;
+        padding:10px 0;
+    }
+
+    .mn-side{
+        padding:18px;
+        border-radius:17px;
+    }
+
+    .mn-levels{
+        gap:8px;
+    }
+
+    .mn-bottom{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:480px){
+
+    .mn-title h1{
+        font-size:30px;
+    }
+
+    .mn-stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mn-stat span{
+        font-size:10px;
+    }
+
+    .mn-stat strong{
+        font-size:22px;
+    }
+
+    .mn-node{
+        padding:13px;
+    }
+
+    .mn-node strong{
+        font-size:19px;
+    }
+
+    .mn-info{
+        padding:17px;
+    }
+}
