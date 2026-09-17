@@ -308,10 +308,11 @@ footer{
 }
 
 .modal-box{
-  width:min(620px,100%);
-  padding:48px;
+  width:100%;
+  min-height:100vh;
+border-radius:0;
   border:1px solid #333;
-  border-radius:28px;
+  border-radius:0;
   background:
     radial-gradient(circle at 70% 0%,rgba(245,196,0,.1),transparent 35%),
     #090909;
