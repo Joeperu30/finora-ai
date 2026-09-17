@@ -566,7 +566,7 @@ function toggleBackOfficeMenu() {
 
     <div
       class="bo-menu-item"
-      onclick="toggleBackOfficeMenu()"
+      onclick="showWorkspace(); toggleBackOfficeMenu();"
     >
       <strong>Dashboard</strong>
       <small style="display:block;color:#777;margin-top:4px;">
