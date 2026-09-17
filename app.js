@@ -160,7 +160,7 @@ async function handleAuth(event, mode) {
       }
     }
 
-    showWorkspace();
+    showPremiumWorkspace();
 
   } catch (error) {
     renderAuth(
@@ -1241,3 +1241,390 @@ function openWallets() {
 }
 
 window.openMyNetwork = openMyNetwork;
+function showPremiumWorkspace() {
+  showWorkspace();
+
+  const box = document.querySelector('.modal-box');
+  if (!box) return;
+
+  const style = document.createElement('style');
+  style.id = 'finora-premium-style';
+
+  style.textContent = `
+    .finora-premium {
+      background:
+        radial-gradient(circle at 85% 5%, rgba(245,196,0,.12), transparent 28%),
+        linear-gradient(180deg,#050505 0%,#090909 100%);
+      color:#fff;
+      min-height:100vh;
+      padding:22px 18px 100px;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    .fp-top {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:24px;
+    }
+
+    .fp-brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.5px;
+      font-size:20px;
+    }
+
+    .fp-logo {
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(145deg,#f5c400,#8f7000);
+      color:#050505;
+      font-weight:900;
+      box-shadow:0 8px 25px rgba(245,196,0,.22);
+    }
+
+    .fp-icon {
+      width:40px;
+      height:40px;
+      border:1px solid #292929;
+      border-radius:12px;
+      background:#101010;
+      display:grid;
+      place-items:center;
+      color:#f5c400;
+      font-size:18px;
+    }
+
+    .fp-welcome {
+      color:#858585;
+      font-size:13px;
+      margin-bottom:4px;
+    }
+
+    .fp-title {
+      font-size:25px;
+      font-weight:800;
+      margin:0 0 20px;
+    }
+
+    .fp-balance {
+      position:relative;
+      overflow:hidden;
+      padding:24px;
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(245,196,0,.20),transparent 32%),
+        linear-gradient(135deg,#171717,#090909);
+      border:1px solid rgba(245,196,0,.30);
+      box-shadow:0 18px 45px rgba(0,0,0,.45);
+      margin-bottom:14px;
+    }
+
+    .fp-label {
+      color:#999;
+      font-size:13px;
+    }
+
+    .fp-value {
+      font-size:36px;
+      font-weight:850;
+      margin:8px 0 5px;
+      letter-spacing:-1px;
+    }
+
+    .fp-unit {
+      color:#f5c400;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .fp-glow {
+      position:absolute;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:rgba(245,196,0,.08);
+      filter:blur(25px);
+      right:-40px;
+      bottom:-60px;
+    }
+
+    .fp-metrics {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:18px;
+    }
+
+    .fp-metric {
+      padding:17px;
+      border-radius:18px;
+      background:#0d0d0d;
+      border:1px solid #222;
+    }
+
+    .fp-metric span {
+      display:block;
+      color:#777;
+      font-size:11px;
+      margin-bottom:7px;
+    }
+
+    .fp-metric strong {
+      font-size:18px;
+    }
+
+    .fp-section {
+      margin-top:22px;
+      margin-bottom:10px;
+      font-size:16px;
+      font-weight:800;
+    }
+
+    .fp-chart {
+      background:#0c0c0c;
+      border:1px solid #222;
+      border-radius:22px;
+      padding:18px;
+      overflow:hidden;
+    }
+
+    .fp-chart-head {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:15px;
+    }
+
+    .fp-chart-head strong {
+      font-size:15px;
+    }
+
+    .fp-periods {
+      display:flex;
+      gap:5px;
+    }
+
+    .fp-periods button {
+      border:1px solid #292929;
+      background:#111;
+      color:#777;
+      border-radius:8px;
+      padding:6px 8px;
+      font-size:10px;
+    }
+
+    .fp-periods button.active {
+      background:#f5c400;
+      color:#050505;
+      border-color:#f5c400;
+      font-weight:800;
+    }
+
+    .fp-chart svg {
+      width:100%;
+      height:150px;
+      display:block;
+    }
+
+    .fp-actions {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:8px;
+    }
+
+    .fp-action {
+      border:1px solid #272727;
+      background:#101010;
+      border-radius:16px;
+      padding:13px 5px;
+      text-align:center;
+      color:#ddd;
+      font-size:10px;
+    }
+
+    .fp-action b {
+      display:block;
+      color:#f5c400;
+      font-size:18px;
+      margin-bottom:5px;
+    }
+
+    .fp-market {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+    }
+
+    .fp-coin {
+      background:#0d0d0d;
+      border:1px solid #222;
+      border-radius:16px;
+      padding:13px;
+    }
+
+    .fp-coin small {
+      color:#777;
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .fp-coin strong {
+      font-size:13px;
+    }
+
+    .fp-change {
+      color:#52d273;
+      font-size:10px;
+      margin-top:4px;
+    }
+
+    .fp-banner {
+      margin-top:18px;
+      padding:19px;
+      border-radius:20px;
+      border:1px solid rgba(245,196,0,.25);
+      background:linear-gradient(135deg,#15120a,#0b0b0b);
+    }
+
+    .fp-banner b {
+      display:block;
+      color:#f5c400;
+      font-size:13px;
+      margin-bottom:5px;
+    }
+
+    .fp-banner span {
+      color:#aaa;
+      font-size:11px;
+    }
+  `;
+
+  document.head.appendChild(style);
+
+  const premium = document.createElement('div');
+  premium.className = 'finora-premium';
+
+  premium.innerHTML = `
+    <div class="fp-top">
+      <div class="fp-brand">
+        <div class="fp-logo">F</div>
+        <span>FINORA</span>
+      </div>
+      <div class="fp-icon">⌁</div>
+    </div>
+
+    <div class="fp-welcome">Welcome back,</div>
+    <h1 class="fp-title">FINORA User 👋</h1>
+
+    <div class="fp-balance">
+      <div class="fp-label">Total Balance</div>
+      <div class="fp-value">$0.00</div>
+      <div class="fp-unit">USDT</div>
+      <div class="fp-glow"></div>
+    </div>
+
+    <div class="fp-metrics">
+      <div class="fp-metric">
+        <span>INVESTED CAPITAL</span>
+        <strong>$0.00</strong>
+      </div>
+      <div class="fp-metric">
+        <span>TOTAL EARNINGS</span>
+        <strong>$0.00</strong>
+      </div>
+      <div class="fp-metric">
+        <span>AVAILABLE</span>
+        <strong>$0.00</strong>
+      </div>
+      <div class="fp-metric">
+        <span>STATUS</span>
+        <strong style="color:#f5c400">ACTIVE</strong>
+      </div>
+    </div>
+
+    <div class="fp-section">Portfolio Performance</div>
+
+    <div class="fp-chart">
+      <div class="fp-chart-head">
+        <strong>Performance</strong>
+        <div class="fp-periods">
+          <button class="active">7D</button>
+          <button>30D</button>
+          <button>90D</button>
+          <button>1Y</button>
+        </div>
+      </div>
+
+      <svg viewBox="0 0 400 150" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="fpGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f5c400" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#f5c400" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <path d="M0 125 H400 M0 92 H400 M0 59 H400 M0 26 H400"
+              stroke="#202020" stroke-width="1"/>
+
+        <path d="M0 125 L45 123 L85 124 L125 121 L165 123 L205 120 L245 122 L285 119 L325 121 L365 118 L400 120 L400 150 L0 150 Z"
+              fill="url(#fpGold)"/>
+
+        <path d="M0 125 L45 123 L85 124 L125 121 L165 123 L205 120 L245 122 L285 119 L325 121 L365 118 L400 120"
+              fill="none"
+              stroke="#f5c400"
+              stroke-width="3"
+              stroke-linecap="round"/>
+      </svg>
+
+      <div style="text-align:center;color:#666;font-size:10px;margin-top:5px;">
+        No portfolio performance data yet
+      </div>
+    </div>
+
+    <div class="fp-section">Quick Actions</div>
+
+    <div class="fp-actions">
+      <div class="fp-action"><b>＋</b>Deposit</div>
+      <div class="fp-action"><b>↗</b>Withdraw</div>
+      <div class="fp-action"><b>⇄</b>Transfer</div>
+      <div class="fp-action"><b>≡</b>History</div>
+    </div>
+
+    <div class="fp-section">Markets</div>
+
+    <div class="fp-market">
+      <div class="fp-coin">
+        <small>BTC</small>
+        <strong>—</strong>
+        <div class="fp-change">Live</div>
+      </div>
+
+      <div class="fp-coin">
+        <small>ETH</small>
+        <strong>—</strong>
+        <div class="fp-change">Live</div>
+      </div>
+
+      <div class="fp-coin">
+        <small>USDT</small>
+        <strong>$1.00</strong>
+        <div class="fp-change">USD</div>
+      </div>
+    </div>
+
+    <div class="fp-banner">
+      <b>FINORA AI ENGINE</b>
+      <span>Intelligent technology built for the next generation of digital finance.</span>
+    </div>
+  `;
+
+  box.innerHTML = '';
+  box.appendChild(premium);
+}
