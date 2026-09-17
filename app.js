@@ -574,7 +574,7 @@ function toggleBackOfficeMenu() {
       </small>
     </div>
 
-    <div class="bo-menu-item">
+    <div class="bo-menu-item" onclick="openWallets()">
       <strong>Wallets</strong>
       <small style="display:block;color:#777;margin-top:4px;">
         Balances and transactions
