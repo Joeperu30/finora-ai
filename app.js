@@ -180,7 +180,7 @@ function showWorkspace() {
       : 'FINORA User';
 
   box.innerHTML = `
-    <button class="close" onclick="closeModal()">×</button>
+    <button class="close" onclick="closeModal()" style="display:none;">
 
     <div style="
       display:flex;
