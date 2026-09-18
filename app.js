@@ -1241,7 +1241,8 @@ function openWallets() {
 }
 
 window.openMyNetwork = openMyNetwork;
-function showPremiumWorkspace() {
+async function showPremiumWorkspace() {
+
   showWorkspace();
 
   const box = document.querySelector('.modal-box');
