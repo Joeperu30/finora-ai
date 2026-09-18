@@ -1522,7 +1522,17 @@ function showPremiumWorkspace() {
 
     <div class="fp-welcome">Welcome back,</div>
     <h1 class="fp-title">FINORA User 👋</h1>
-
+<div style="margin:18px 0;padding:18px;border:1px solid #3a3000;border-radius:18px;background:linear-gradient(135deg,#11100a,#070707);">
+  <div style="font-size:11px;color:#f5c400;font-weight:700;letter-spacing:1.5px;margin-bottom:7px;">
+    FINORA ANNOUNCEMENT
+  </div>
+  <div style="font-size:16px;color:#fff;font-weight:700;margin-bottom:5px;">
+    Official announcements
+  </div>
+  <div style="font-size:12px;color:#999;line-height:1.5;">
+    Stay updated with the latest news, opportunities and updates from FINORA.
+  </div>
+</div>
     <div class="fp-balance">
       <div class="fp-label">Total Balance</div>
       <div class="fp-value">$0.00</div>
@@ -1548,7 +1558,106 @@ function showPremiumWorkspace() {
         <strong style="color:#f5c400">ACTIVE</strong>
       </div>
     </div>
+<div style="margin:24px 0;">
+  <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:14px;">
+    Referral Center
+  </div>
 
+  <div style="padding:20px;border:1px solid #3a3000;border-radius:20px;background:linear-gradient(135deg,#11100a,#080808);">
+
+    <div style="font-size:11px;color:#f5c400;font-weight:700;letter-spacing:1.4px;margin-bottom:16px;">
+      YOUR REFERRAL LINKS
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <div style="font-size:11px;color:#888;margin-bottom:7px;">
+        LEFT REFERRAL LINK
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="flex:1;min-width:0;padding:13px;border:1px solid #292929;border-radius:12px;background:#050505;color:#aaa;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+          finora.ai/?ref=FINORA-USER-L
+        </div>
+
+        <button
+          onclick="navigator.clipboard.writeText('https://finora.ai/?ref=FINORA-USER-L')"
+          style="padding:13px 14px;border:1px solid #f5c400;border-radius:12px;background:#f5c400;color:#000;font-weight:700;cursor:pointer;"
+        >
+          Copy
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:11px;color:#888;margin-bottom:7px;">
+        RIGHT REFERRAL LINK
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="flex:1;min-width:0;padding:13px;border:1px solid #292929;border-radius:12px;background:#050505;color:#aaa;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+          finora.ai/?ref=FINORA-USER-R
+        </div>
+
+        <button
+          onclick="navigator.clipboard.writeText('https://finora.ai/?ref=FINORA-USER-R')"
+          style="padding:13px 14px;border:1px solid #f5c400;border-radius:12px;background:#f5c400;color:#000;font-weight:700;cursor:pointer;"
+        >
+          Copy
+        </button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;">
+
+      <div style="padding:16px;border:1px solid #292929;border-radius:16px;background:#0b0b0b;">
+        <div style="font-size:10px;color:#888;letter-spacing:1px;">
+          LEFT TEAM
+        </div>
+        <div style="font-size:24px;font-weight:700;color:#fff;margin-top:7px;">
+          0
+        </div>
+        <div style="font-size:11px;color:#888;">
+          Users
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#f5c400;margin-top:10px;">
+          $0.00 USDT
+        </div>
+        <div style="font-size:10px;color:#777;">
+          Total volume
+        </div>
+      </div>
+
+      <div style="padding:16px;border:1px solid #292929;border-radius:16px;background:#0b0b0b;">
+        <div style="font-size:10px;color:#888;letter-spacing:1px;">
+          RIGHT TEAM
+        </div>
+        <div style="font-size:24px;font-weight:700;color:#fff;margin-top:7px;">
+          0
+        </div>
+        <div style="font-size:11px;color:#888;">
+          Users
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#f5c400;margin-top:10px;">
+          $0.00 USDT
+        </div>
+        <div style="font-size:10px;color:#777;">
+          Total volume
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:12px;padding:16px;border:1px solid #3a3000;border-radius:16px;background:#0d0c08;text-align:center;">
+      <div style="font-size:10px;color:#888;letter-spacing:1px;">
+        TOTAL NETWORK VOLUME
+      </div>
+      <div style="font-size:26px;font-weight:700;color:#f5c400;margin-top:6px;">
+        $0.00 USDT
+      </div>
+    </div>
+
+  </div>
+</div>
     <div class="fp-section">Portfolio Performance</div>
 
     <div class="fp-chart">
