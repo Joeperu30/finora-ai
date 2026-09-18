@@ -762,7 +762,7 @@ function openWallets() {
   const { data: { session } } = await supabase.auth.getSession();
 
   if (session) {
-    showWorkspace();
+    showPremiumWorkspace();
   }
 })();function openMyNetwork() {
   const oldMenu = document.getElementById('my-network-fullscreen');
