@@ -33,7 +33,18 @@ function closeModal() {
   modal.classList.remove('show');
   modal.setAttribute('aria-hidden', 'true');
 }
+(async function restoreSession() {
+  try {
+    const supabase = await getSupabase();
+    const { data: { session } } = await supabase.auth.getSession();
 
+    if (session?.user) {
+      showPremiumWorkspace();
+    }
+  } catch (error) {
+    console.error('Session restore error:', error);
+  }
+})();
 function renderAuth(mode = 'signin', message = '', isError = false) {
   const box = document.querySelector('.modal-box');
   const signup = mode === 'signup';
