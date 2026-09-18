@@ -1576,7 +1576,7 @@ function showPremiumWorkspace() {
 
       <div style="display:flex;align-items:center;gap:8px;">
         <div style="flex:1;min-width:0;padding:13px;border:1px solid #292929;border-radius:12px;background:#050505;color:#aaa;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-          finora.ai/?ref=FINORA-USER-L
+          <span id="fp-left-referral-link">Loading...</span>
         </div>
 
         <button
@@ -1595,7 +1595,7 @@ function showPremiumWorkspace() {
 
       <div style="display:flex;align-items:center;gap:8px;">
         <div style="flex:1;min-width:0;padding:13px;border:1px solid #292929;border-radius:12px;background:#050505;color:#aaa;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-          finora.ai/?ref=FINORA-USER-R
+         <span id="fp-right-referral-link">Loading...</span>
         </div>
 
         <button
@@ -1736,6 +1736,53 @@ function showPremiumWorkspace() {
 
   box.innerHTML = '';
   box.appendChild(premium);
+    try {
+    const supabase = await getSupabase();
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (user) {
+      const referralCode = user.id;
+
+      const leftReferralLink =
+        'https://finora.ai/?ref=' +
+        encodeURIComponent(referralCode) +
+        '&side=left';
+
+      const rightReferralLink =
+        'https://finora.ai/?ref=' +
+        encodeURIComponent(referralCode) +
+        '&side=right';
+
+      const leftLink = document.getElementById('fp-left-referral-link');
+      const rightLink = document.getElementById('fp-right-referral-link');
+
+      if (leftLink) leftLink.textContent = leftReferralLink;
+      if (rightLink) rightLink.textContent = rightReferralLink;
+            const leftCopyButton =
+        document.getElementById('fp-left-referral-link')
+          ?.parentElement?.parentElement?.querySelector('button');
+
+      const rightCopyButton =
+        document.getElementById('fp-right-referral-link')
+          ?.parentElement?.parentElement?.querySelector('button');
+
+      if (leftCopyButton) {
+        leftCopyButton.onclick = async () => {
+          const link = document.getElementById('fp-left-referral-link')?.textContent;
+          if (link) await navigator.clipboard.writeText(link);
+        };
+      }
+
+      if (rightCopyButton) {
+        rightCopyButton.onclick = async () => {
+          const link = document.getElementById('fp-right-referral-link')?.textContent;
+          if (link) await navigator.clipboard.writeText(link);
+        };
+      }
+    }
+  } catch (error) {
+    console.error('Referral link error:', error);
+  }
   async function updateMarketPrices() {
   try {
     const response = await fetch(
