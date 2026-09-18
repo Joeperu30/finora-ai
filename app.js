@@ -1529,7 +1529,7 @@ async function showPremiumWorkspace() {
         <div class="fp-logo">F</div>
         <span>FINORA</span>
       </div>
-      <div class="fp-icon">⌁</div>
+      <div class="fp-icon">☰</div>
     </div>
 
     <div class="fp-welcome">Welcome back,</div>
