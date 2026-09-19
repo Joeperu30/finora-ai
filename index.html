@@ -9,67 +9,366 @@
 </head>
 <body>
   <div class="orb orb-a"></div><div class="orb orb-b"></div>
-  <header class="nav">
-    <a class="brand" href="#"><span class="mark">Z</span><span>FINORA</span></a>
-    <nav>
-      <a href="#intelligence">Intelligence</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Plans</a>
-    </nav>
-    <button class="nav-btn" onclick="openLogin()">Sign in</button>
-  </header>
+  <header class="nav finora-nav">
+  <a class="brand" href="#">
+    <span class="mark">Z</span>
+    <span>FINORA</span>
+  </a>
 
-  <main>
-    <section class="hero">
-      <div class="eyebrow"><span class="dot"></span> AI MARKET INTELLIGENCE</div>
-      <h1>See the market<br><em>with intelligence.</em></h1>
-      <p class="hero-copy">AI-powered analysis for global events, probabilities and market signals — in one intelligent workspace.</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#infrastructure">Infrastructure</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#proof">Proof</a>
+  </nav>
+
+  <button class="nav-btn" onclick="openLogin()">Sign in</button>
+</header>
+<main>
+
+  <!-- HERO -->
+  <section class="finora-hero">
+    <div class="hero-media"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="finora-hero-content">
+      <div class="finora-eyebrow">AI INFRASTRUCTURE CAPITAL</div>
+
+      <h1>
+        CAPITAL.<br>
+        INFRASTRUCTURE.<br>
+        <span>INTELLIGENCE.</span>
+      </h1>
+
+      <p>
+        Finora connects capital with the infrastructure
+        powering the next generation of artificial intelligence.
+      </p>
+
+      <div class="finora-tags">
+        <span>AI COMPUTE</span>
+        <span>DATA CENTERS</span>
+        <span>AI ENERGY</span>
+      </div>
+
       <div class="actions">
-        <button class="primary" onclick="openApp()">Launch FINORA AI <span>→</span></button>
-        <a class="secondary" href="#intelligence">Explore platform</a>
+        <button class="primary" onclick="openApp()">Enter Finora</button>
+        <a class="secondary" href="#how-it-works">Discover how it works</a>
       </div>
-      <div class="trust"><span>●</span> Built for fast analysis <span>·</span> Global markets <span>·</span> AI insights</div>
-    </section>
+    </div>
+  </section>
 
-    <section id="intelligence" class="dashboard-preview">
-      <div class="preview-top"><span>MARKET INTELLIGENCE</span><span class="live"><i></i> LIVE PREVIEW</span></div>
-      <div class="cards">
-        <div class="metric"><small>AI SIGNAL</small><strong>87.4%</strong><span class="up">↑ 4.8%</span></div>
-        <div class="metric"><small>MARKETS ANALYZED</small><strong>1,284</strong><span>Today</span></div>
-        <div class="metric"><small>GLOBAL EVENTS</small><strong>326</strong><span>Tracking</span></div>
-        <div class="metric"><small>AI INSIGHTS</small><strong>9,642</strong><span>Generated</span></div>
-      </div>
-      <div class="chart">
-        <div class="chart-head"><span>AI Market Activity</span><span>24H</span></div>
-        <div class="bars">
-          <i style="height:28%"></i><i style="height:42%"></i><i style="height:34%"></i><i style="height:55%"></i>
-          <i style="height:48%"></i><i style="height:70%"></i><i style="height:61%"></i><i style="height:82%"></i>
-          <i style="height:68%"></i><i style="height:90%"></i><i style="height:76%"></i><i style="height:96%"></i>
+  <!-- ABOUT -->
+  <section id="about" class="finora-section finora-about">
+    <div class="finora-label">01 / FINORA</div>
+
+    <h2>
+      The infrastructure<br>
+      behind the <span>AI economy.</span>
+    </h2>
+
+    <p>
+      Artificial intelligence is transforming the global economy.
+      Behind every model, application and intelligent system
+      is a physical infrastructure of computing, data and energy.
+    </p>
+  </section>
+
+  <!-- INFRASTRUCTURE -->
+  <section id="infrastructure" class="finora-section">
+    <div class="finora-label">02 / INFRASTRUCTURE</div>
+
+    <h2>
+      Three foundations.<br>
+      One <span>AI economy.</span>
+    </h2>
+
+    <div class="finora-infra-grid">
+
+      <article class="finora-infra-card compute-card">
+        <div>
+          <small>01</small>
+          <h3>AI COMPUTE</h3>
+          <p>
+            GPU and high-performance computing infrastructure
+            powering artificial intelligence.
+          </p>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <section id="features" class="section">
-      <div class="section-label">01 / PLATFORM</div>
-      <h2>One intelligence layer.<br><span>Endless possibilities.</span></h2>
-      <div class="feature-grid">
-        <article><b>01</b><h3>AI Analyst</h3><p>Ask questions in natural language and receive structured market analysis, context and scenarios.</p></article>
-        <article><b>02</b><h3>Market Signals</h3><p>Turn complex market information into simple, readable signals and probability views.</p></article>
-        <article><b>03</b><h3>Global Events</h3><p>Track political, economic, sports and geopolitical events from a single workspace.</p></article>
-        <article><b>04</b><h3>Personal Dashboard</h3><p>Your activity, saved markets, AI conversations and insights in one private dashboard.</p></article>
-      </div>
-    </section>
+      <article class="finora-infra-card data-card">
+        <div>
+          <small>02</small>
+          <h3>DATA CENTERS</h3>
+          <p>
+            The physical infrastructure where AI data,
+            models and workloads are processed.
+          </p>
+        </div>
+      </article>
 
-    <section id="pricing" class="section pricing">
-      <div class="section-label">02 / ACCESS</div>
-      <h2>Start simple.<br><span>Scale when you're ready.</span></h2>
-      <div class="plans">
-        <div class="plan"><small>STARTER</small><h3>Free</h3><p>Explore the FINORA experience.</p><button onclick="openApp()">Get started</button></div>
-        <div class="plan featured"><div class="tag">POPULAR</div><small>PRO</small><h3>$19<span>/mo</span></h3><p>Advanced AI intelligence and saved analysis.</p><button onclick="openApp()">Start Pro</button></div>
-        <div class="plan"><small>ELITE</small><h3>$49<span>/mo</span></h3><p>Advanced workspace for power users.</p><button onclick="openApp()">Explore Elite</button></div>
+      <article class="finora-infra-card energy-card">
+        <div>
+          <small>03</small>
+          <h3>AI ENERGY</h3>
+          <p>
+            Energy infrastructure supporting the growing
+            demand created by AI and data centers.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- GLOBAL -->
+  <section class="finora-global">
+    <div class="finora-global-content">
+      <div class="finora-label">03 / THE AI ERA</div>
+
+      <h2>
+        AI is not<br>
+        only <span>software.</span>
+      </h2>
+
+      <p>
+        Every intelligent system depends on physical
+        infrastructure operating behind the scenes.
+      </p>
+
+      <div class="finora-flow">
+        <span>AI</span>
+        <b>→</b>
+        <span>COMPUTE</span>
+        <b>→</b>
+        <span>DATA</span>
+        <b>→</b>
+        <span>ENERGY</span>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="finora-section">
+    <div class="finora-label">04 / HOW IT WORKS</div>
+
+    <h2>
+      From capital<br>
+      to <span>infrastructure.</span>
+    </h2>
+
+    <div class="finora-process">
+
+      <div>
+        <strong>01</strong>
+        <h3>CAPITAL</h3>
+        <p>Capital enters the Finora ecosystem.</p>
+      </div>
+
+      <div>
+        <strong>02</strong>
+        <h3>ALLOCATION</h3>
+        <p>
+          Capital is directed toward selected
+          infrastructure opportunities.
+        </p>
+      </div>
+
+      <div>
+        <strong>03</strong>
+        <h3>INFRASTRUCTURE</h3>
+        <p>
+          Exposure is focused on compute,
+          data centers and energy.
+        </p>
+      </div>
+
+      <div>
+        <strong>04</strong>
+        <h3>PERFORMANCE</h3>
+        <p>
+          Performance and relevant information
+          can be reviewed through Finora reporting.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY NOW -->
+  <section class="finora-section finora-why">
+    <div class="finora-label">05 / WHY NOW</div>
+
+    <h2>
+      The AI era needs<br>
+      <span>infrastructure.</span>
+    </h2>
+
+    <div class="finora-stats">
+
+      <div>
+        <span>↑</span>
+        <strong>COMPUTE</strong>
+        <p>Growing demand for AI processing capacity.</p>
+      </div>
+
+      <div>
+        <span>↑</span>
+        <strong>DATA</strong>
+        <p>Expanding digital workloads and storage needs.</p>
+      </div>
+
+      <div>
+        <span>↑</span>
+        <strong>ENERGY</strong>
+        <p>Increasing power requirements for AI infrastructure.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIVERSIFICATION -->
+  <section class="finora-section">
+    <div class="finora-label">06 / DIVERSIFICATION</div>
+
+    <h2>
+      Diversified<br>
+      <span>by design.</span>
+    </h2>
+
+    <div class="finora-diversification">
+
+      <div>
+        <span>01</span>
+        <h3>AI COMPUTE</h3>
+      </div>
+
+      <div>
+        <span>02</span>
+        <h3>DATA CENTERS</h3>
+      </div>
+
+      <div>
+        <span>03</span>
+        <h3>AI ENERGY</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof" class="finora-section finora-proof">
+    <div class="finora-label">07 / TRANSPARENCY</div>
+
+    <h2>
+      Don't just trust.<br>
+      <span>Verify.</span>
+    </h2>
+
+    <p>
+      Finora is designed around transparency.
+      Relevant information should be verifiable,
+      documented and presented clearly.
+    </p>
+
+    <div class="finora-proof-grid">
+
+      <div>
+        <small>CAPITAL ALLOCATED</small>
+        <strong>—</strong>
+      </div>
+
+      <div>
+        <small>ACTIVE INVESTMENTS</small>
+        <strong>—</strong>
+      </div>
+
+      <div>
+        <small>AI COMPUTE</small>
+        <strong>—</strong>
+      </div>
+
+      <div>
+        <small>DATA CENTERS</small>
+        <strong>—</strong>
+      </div>
+
+      <div>
+        <small>AI ENERGY</small>
+        <strong>—</strong>
+      </div>
+
+    </div>
+
+    <button class="primary">View Finora Reports →</button>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="finora-performance">
+    <div class="finora-label">08 / PERFORMANCE</div>
+
+    <h2>
+      Performance with<br>
+      <span>transparency.</span>
+    </h2>
+
+    <div class="finora-performance-box">
+      <span>PERFORMANCE DATA</span>
+      <strong>COMING SOON</strong>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="finora-section finora-videos">
+    <div class="finora-label">09 / INSIDE FINORA</div>
+
+    <h2>
+      Understand the<br>
+      <span>AI infrastructure economy.</span>
+    </h2>
+
+    <div class="finora-video-grid">
+
+      <article>
+        <video controls poster="assets/finora-video-01.jpg">
+          <source src="assets/finora-intro.mp4" type="video/mp4">
+        </video>
+        <h3>What is Finora?</h3>
+      </article>
+
+      <article>
+        <video controls poster="assets/finora-video-02.jpg">
+          <source src="assets/ai-infrastructure.mp4" type="video/mp4">
+        </video>
+        <h3>The AI Infrastructure Economy</h3>
+      </article>
+
+      <article>
+        <video controls poster="assets/finora-video-03.jpg">
+          <source src="assets/how-finora-works.mp4" type="video/mp4">
+        </video>
+        <h3>How Finora Works</h3>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="finora-final">
+    <div class="finora-label">FINORA</div>
+
+    <h2>
+      THE AI ERA IS<br>
+      <span>BEING BUILT NOW.</span>
+    </h2>
+
+    <div class="actions">
+      <button class="primary" onclick="openApp()">Enter Finora</button>
+      <button class="secondary" onclick="openLogin()">Sign in</button>
+    </div>
+  </section>
+
+</main>
 
   <footer><div class="brand"><span class="mark">Z</span><span>FINORA</span></div><span>AI MARKET INTELLIGENCE © 2026</span></footer>
 
