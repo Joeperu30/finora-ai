@@ -1706,13 +1706,24 @@ async function showPremiumWorkspace() {
   premium.className = 'finora-premium';
 
   premium.innerHTML = `
-    <div class="fp-top">
-      <div class="fp-brand">
-        <div class="fp-logo">F</div>
-        <span>FINORA</span>
-      </div>
-     <div class="fp-icon" onclick="toggleBackOfficeMenu()" style="cursor:pointer;">☰</div>
-    </div>
+    <div class="fp-top" style="display:flex;justify-content:flex-end;align-items:center;gap:10px;">
+
+  <button
+    onclick="toggleBackOfficeMenu()"
+    style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:24px;cursor:pointer;"
+  >☰</button>
+
+  <button
+    onclick="openSupport()"
+    style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:21px;cursor:pointer;"
+  >🔔</button>
+
+  <button
+    onclick="openProfile()"
+    style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:21px;cursor:pointer;"
+  >👤</button>
+
+</div>
 
     <div class="fp-welcome">Welcome back,</div>
     <h1 class="fp-title">FINORA User 👋</h1>
