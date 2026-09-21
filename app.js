@@ -570,13 +570,13 @@ function toggleBackOfficeMenu() {
 
   menu.style.position = 'fixed';
   menu.style.top = '0';
-  menu.style.right = '0';
+  menu.style.left = '0';
   menu.style.width = '290px';
   menu.style.height = '100vh';
   menu.style.zIndex = '9999';
   menu.style.background = '#080808';
-  menu.style.borderLeft = '1px solid #2a2a2a';
-  menu.style.boxShadow = '-20px 0 60px rgba(0,0,0,.65)';
+  menu.style.borderRight = '1px solid #2a2a2a';
+menu.style.boxShadow = '20px 0 60px rgba(0,0,0,.65)';
   menu.style.padding = '28px 20px';
   menu.style.overflowY = 'auto';
 
