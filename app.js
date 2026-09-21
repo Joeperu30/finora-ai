@@ -1706,25 +1706,28 @@ async function showPremiumWorkspace() {
   premium.className = 'finora-premium';
 
   premium.innerHTML = `
-    <div class="fp-top" style="display:flex;justify-content:flex-end;align-items:center;gap:10px;">
+    <div class="fp-top" style="display:flex;justify-content:space-between;align-items:center;width:100%;">
 
   <button
     onclick="toggleBackOfficeMenu()"
     style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:24px;cursor:pointer;"
   >☰</button>
 
-  <button
-    onclick="openSupport()"
-    style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:21px;cursor:pointer;"
-  >🔔</button>
+  <div style="display:flex;align-items:center;gap:10px;">
 
-  <button
-    onclick="openProfile()"
-    style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:21px;cursor:pointer;"
-  >👤</button>
+    <button
+      onclick="openSupport()"
+      style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:21px;cursor:pointer;"
+    >🔔</button>
+
+    <button
+      onclick="openProfile()"
+      style="width:48px;height:48px;border:1px solid #292929;border-radius:14px;background:#090909;color:#f5c400;font-size:21px;cursor:pointer;"
+    >👤</button>
+
+  </div>
 
 </div>
-
     <div class="fp-welcome">Welcome back,</div>
     <h1 class="fp-title">FINORA User 👋</h1>
 <div style="margin:18px 0;padding:18px;border:1px solid #3a3000;border-radius:18px;background:linear-gradient(135deg,#11100a,#070707);">
