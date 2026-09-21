@@ -201,24 +201,55 @@ function showWorkspace() {
       gap:16px;
       margin-bottom:28px;
     ">
-      <div class="brand">
-        <span class="mark">Z</span>
-        <span>FINORA AI</span>
-      </div>
+      <div style="
+  display:flex;
+  align-items:center;
+  gap:10px;
+">
 
-      <button
-        onclick="toggleBackOfficeMenu()"
-        style="
-          width:48px;
-          height:48px;
-          border:1px solid #f5c400;
-          border-radius:14px;
-          background:#090909;
-          color:#f5c400;
-          font-size:24px;
-          cursor:pointer;
-        "
-      >☰</button>
+  <button
+    onclick="toggleBackOfficeMenu()"
+    style="
+      width:48px;
+      height:48px;
+      border:1px solid #292929;
+      border-radius:14px;
+      background:#090909;
+      color:#f5c400;
+      font-size:24px;
+      cursor:pointer;
+    "
+  >☰</button>
+
+  <button
+    onclick="openSupport()"
+    style="
+      width:48px;
+      height:48px;
+      border:1px solid #292929;
+      border-radius:14px;
+      background:#090909;
+      color:#f5c400;
+      font-size:21px;
+      cursor:pointer;
+    "
+  >🔔</button>
+
+  <button
+    onclick="openProfile()"
+    style="
+      width:48px;
+      height:48px;
+      border:1px solid #292929;
+      border-radius:14px;
+      background:#090909;
+      color:#f5c400;
+      font-size:21px;
+      cursor:pointer;
+    "
+  >👤</button>
+
+</div>
     </div>
 
     <div id="backOfficeMenu" style="
@@ -675,7 +706,157 @@ async function signOut() {
     false
   );
 }
+function openProfile() {
+  const box = document.querySelector('.modal-box');
 
+  box.innerHTML = `
+    <button class="close" onclick="closeModal()">×</button>
+
+    <div style="margin-bottom:28px;">
+      <div style="font-size:13px;color:#f5c400;letter-spacing:2px;">
+        FINORA ACCOUNT
+      </div>
+
+      <h2 style="margin:8px 0 6px;">
+        My Profile
+      </h2>
+
+      <p style="color:#888;margin:0;">
+        Manage your personal information and account settings.
+      </p>
+    </div>
+
+    <div style="
+      background:#090909;
+      border:1px solid #292929;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:14px;
+    ">
+      <small style="color:#777;">NAME</small>
+      <div style="margin-top:7px;font-size:17px;">
+        FINORA User
+      </div>
+    </div>
+
+    <div style="
+      background:#090909;
+      border:1px solid #292929;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:14px;
+    ">
+      <small style="color:#777;">EMAIL</small>
+      <div style="margin-top:7px;font-size:17px;">
+        ${userEmail}
+      </div>
+    </div>
+
+    <div style="
+      background:#090909;
+      border:1px solid #292929;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:14px;
+    ">
+      <small style="color:#777;">ACCOUNT</small>
+      <div style="margin-top:7px;font-size:17px;">
+        Active
+      </div>
+    </div>
+
+    <button
+      onclick="showWorkspace()"
+      style="
+        width:100%;
+        padding:15px;
+        border:0;
+        border-radius:14px;
+        background:#f5c400;
+        color:#000;
+        font-weight:700;
+        cursor:pointer;
+        margin-top:10px;
+      "
+    >
+      Back to Dashboard
+    </button>
+  `;
+
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function openSupport() {
+  const box = document.querySelector('.modal-box');
+
+  box.innerHTML = `
+    <button class="close" onclick="closeModal()">×</button>
+
+    <div style="margin-bottom:28px;">
+      <div style="font-size:13px;color:#f5c400;letter-spacing:2px;">
+        FINORA SUPPORT
+      </div>
+
+      <h2 style="margin:8px 0 6px;">
+        Support Center
+      </h2>
+
+      <p style="color:#888;margin:0;">
+        How can we help you?
+      </p>
+    </div>
+
+    <div style="
+      background:#090909;
+      border:1px solid #292929;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:14px;
+    ">
+      <strong>🔔 Notifications</strong>
+      <p style="color:#888;margin:8px 0 0;">
+        View important updates and account notifications.
+      </p>
+    </div>
+
+    <div style="
+      background:#090909;
+      border:1px solid #292929;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:14px;
+    ">
+      <strong>💬 Contact Support</strong>
+      <p style="color:#888;margin:8px 0 0;">
+        Get assistance with your Finora account.
+      </p>
+    </div>
+
+    <button
+      onclick="showWorkspace()"
+      style="
+        width:100%;
+        padding:15px;
+        border:0;
+        border-radius:14px;
+        background:#f5c400;
+        color:#000;
+        font-weight:700;
+        cursor:pointer;
+        margin-top:10px;
+      "
+    >
+      Back to Dashboard
+    </button>
+  `;
+
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+window.openProfile = openProfile;
+window.openSupport = openSupport;
 modal.addEventListener('click', e => {
   if (e.target === modal) {
     closeModal();
