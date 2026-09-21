@@ -183,6 +183,7 @@ async function handleAuth(event, mode) {
 }
 
 function showWorkspace() {
+    document.querySelector('.finora-nav')?.style.setProperty('display', 'none', 'important');
   const box = document.querySelector('.modal-box');
 
   const userEmail =
